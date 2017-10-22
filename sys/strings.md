@@ -1,3 +1,5 @@
+_9/27_
+
 # Aim: ctrings
 
 Strings
@@ -39,3 +41,7 @@ Strings
         Char pointers can be assigned using = at any time
             char *s = "zero";
             s = "seven"; // ok!
+
+Recommended use of string n fxns:
+strncpy(s1, s2, sizeof(s1) - 1);
+strncat(s1, s2, sizeof(s1) - strlen(s2))

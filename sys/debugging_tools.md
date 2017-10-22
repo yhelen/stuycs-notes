@@ -1,3 +1,18 @@
+_10/18_
+
+# Aim: Back to the grind
+
+Valgrind
+    Tool for debugging memory issues in C programs
+
+    Compile with -g in order to use valgrind (and similar tools)
+        gcc -g foo.c
+
+    Usage:
+        valgrind --leak-check=yes <program>
+---
+_10/19_
+
 # Aim: Get Dem Bugs
 
 `(gdb) run`

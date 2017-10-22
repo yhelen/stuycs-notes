@@ -1,3 +1,34 @@
+_10/10_
+
+# Aim: If you don't pay attention you'll get into a heap of trouble!
+
+Stack memory vs Heap memory
+    Computer programs separate memory usage into two parts: stack and heap.
+
+    Every program can have its own stack and heap.
+
+    Stack memory
+        Stores all normally delcared variables (including pointers and structs),
+        arrays and function calls
+
+        Functions are pushed onto the stack in the order they are called, and
+        popped off when completed.
+
+        When a function is popped off the stack, the stack memory associated
+        with it is released.
+
+    Heap Memorythat this occurs
+        Stores dynamically allocated memory
+
+        _Data will remain in the heap until it is released._
+            (or the program terminates)
+
+        Can be accessed through pointers.
+
+        Can be accessed across many functions.
+
+_10/12_
+
 # Aim: malloc & free: The dynamic duo!
 
 Dynamic memory allocation

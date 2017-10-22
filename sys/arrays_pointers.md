@@ -1,3 +1,5 @@
+_9/18_
+
 # Aim: A vast array of possibilities
 
 Data Types and Variables
@@ -47,3 +49,54 @@ Memory Management
             There is no boundary checking
 
     Segmentation fault: Program has accessed memory it should not
+---
+_9/20_
+
+# Aim: Try not to hurt yourself, the point is sharp.
+
+Pointers
+    Variables designed to store memory addresses
+        (array variable is a kind of pointer)
+
+    * is used to declare a variable as a pointer type
+        eg. int *p, double *q, char *r
+            (you can put a space after the *)
+    & is used to get the address of a variable (address of operator)
+
+    & is also used as the deference operator
+        It accesses the value at the memory location stored in a pointer.
+
+    All pointer variable types are the same size.
+
+    Pointer Arithmetic
+        int *p = &i;
+        char *c = &i;
+
+        p++; // will add 4 to p
+        c++; // will add 1 to p
+
+        arrays work as so:
+        arr[i] means *(arr+i)
+---
+_9/25_
+
+# Aim: How to write functioning code
+
+Seeding a random num generator (usually EPOCH time in other languages by default)
+
+Arrays and Pointers
+    Array variables are immutable pointers
+
+    Pointers can be assigne to array variables.
+        int ray[5];
+        int *rp = ray;
+
+        ray[3] <==> ?
+                    *(rp + 3)
+        ALSO LEGAL:
+        3[ray] = *(3 + ray)
+
+        a[i] notation is shorthand for *(a + i)
+        in fact...
+            a[i] <==> *(a + i)
+            i[a] <==> *(i + a)

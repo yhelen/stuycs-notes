@@ -1,3 +1,5 @@
+_10/06_
+
 # Aim: Finding your type
 
 typedef
@@ -35,3 +37,21 @@ Struct
         char x;
     };
     ^^ Advised declaration ^^
+---
+_10/10_
+
+# Aim: If you don't pay attention you'll get into a heap of trouble!
+
+Struct
+    struct foo { int a; char x; } s;
+
+    We use the . operator to access a value inside a struct
+        s.a = 10;
+        s.x = '@';
+
+        . binds before *
+        p = &s
+        (*p).x;
+
+        To access data from a struct pointer you can also use ->k:
+        p->x; //this is the same as (*p).x
