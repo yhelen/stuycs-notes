@@ -7,6 +7,7 @@
     * [[sys/structs.md]]
     * [[sys/memory.md]]
     * [[sys/debugging_tools.md]]
+    * [sys/bits.md](sys/bits.md)
 
 # Softdev
     * September:
