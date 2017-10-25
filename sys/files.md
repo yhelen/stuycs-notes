@@ -2,7 +2,7 @@
 
 What are the different kinds of file permissions?
 
-# File permissions
+## File permissions
 * read|write|execute
 * user|group|others
 
@@ -14,7 +14,7 @@ There are 3 permission "areas": user, group, others. Each area can have its own
 permissions.
 * 0644 => user: read+write, group: read, other: read
 
-# File Table
+## File Table
 A list of all the files used by a program while it is running. Contains basic
 information like the file's location & size.
 
@@ -30,3 +30,37 @@ There are 3 files always open in the table:
 * 0 or `STDIN_FILENO`: stdin
 * 1 or `STDOUT_FILENO`: stdout
 * 2 or `STDERR_FILENO`: stderr
+
+# 10/25 Aim: Opening up a world of possibilities
+
+## `open - <fctnl.h>`
+
+Adds a file to the file table and returns its file dscriptor.
+If open fails, -1 is returned, extra error information can be found
+can be found in `errno`.
+* `errno` is an int variable that can be found in `<errno.h>`, using
+  strerror (in `string.h`) on errno will return a string description
+  of the error.
+
+`open( <PATH> , <FLAGS> , <MODE> )`
+
+* mode
+  - Only used when creating a file. Set the new file's permissions using a
+    3 digit octal #
+* flags
+  - Determine what you plan to do with the file
+  - Use only the following constants:
+    * `O_RDONLY`
+    * `O_WRONLY`
+    * `O_RDWR`
+    * `O_APPEND`
+    * `O_TRUNC`
+    * `O_CREAT`
+    * `O_EXCL`: when combined with `O_CREAT`, will return an error if the file
+      exists
+  - Each flag is a number, to combine flags we use bitwise OR
+    ```
+    O_WRONLY = 1            00000001
+    O_APPEND = 8            00001000
+    O_WRONLY | O_APPEND =   00001001
+    ```
