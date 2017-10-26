@@ -33,7 +33,7 @@ There are 3 files always open in the table:
 
 # 10/25 Aim: Opening up a world of possibilities
 
-## `open - <fctnl.h>`
+## `open - <fcntl.h>`
 
 Adds a file to the file table and returns its file dscriptor.
 If open fails, -1 is returned, extra error information can be found
@@ -64,3 +64,60 @@ can be found in `errno`.
     O_APPEND = 8            00001000
     O_WRONLY | O_APPEND =   00001001
     ```
+
+# 10/26 Aim: Read your writes!
+
+## `umask - <sys/stat.h>`
+
+Set the file creation permission mask.
+
+By default, created files are not given the exact permissions provided in
+the mode argument to open. Some permissions are automatically off.
+
+Umask is applied in the following way:
+```
+new_permissions = ~mask & mode
+```
+The default mask is `0002`.
+```
+mode = 666      110 110 110
+umask = 022     000 010 010
+
+~umask =        111 101 101
+& mode =        110 110 110
+                110 100 100
+```
+You can define the mask using a 3 digit octal #:
+```
+umask( <MASK> );
+```
+
+## `read - <unistd.h>`
+
+Read in data from a file.
+```
+read( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT> )
+
+read( fd, buff, n )
+```
+
+Read n bytes from the fd's file and put that data into buff. Returns
+the number of bytes actually read. Returns `-1` and sets `errno` if unsuccessful.
+
+`BUFFER` must be a pointer.
+
+## `write - <unistd.h>`
+
+Write data to a file.
+```
+write( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT>)
+
+write( fd, buff, n )
+```
+
+Write n bytes from buff into fd's file. Returns the number of bytes actually
+written. Returns `-1` and sets `errno` if unsuccessful.
+
+`BUFFER` must be a pointer.
+
+YOU CAN READ AND WRITE BINARY DATA.
