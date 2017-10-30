@@ -1,4 +1,4 @@
-# 9/11 Aim: Let's C what you can do
+[#](#) 9/11 Aim: Let's C what you can do
 
 ## Basic C code
 
@@ -82,41 +82,53 @@ lose byte and boolean
     - floating point vs. integer
     - size of variable in memory
 * Size can be platform dependent
-    - sizeof(<TYPE>) can be used to find the size in bytes:
-        * e.g. sizeof(int)
+    - `sizeof(<TYPE>)` can be used to find the size in bytes:
+        * e.g. `sizeof(int)`
 
-%% TODO FIX
-    Type        Standard size (Bytes)       Range
-    char            1                       -128 to 127
-    short           2
-    int             4                       about -2 billion to 2 billion
-    long            8
+### INT types
 
-    float           4                       7 digit precision
-    double          8                       14 digit
+| Type   | Standard Size (Bytes) | Range        |
+| ------ | --------------------- | ------------ |
+| char   | 1                     | -128 to 127  |
+| short  | 2                     |              |
+| int    | 4                     |              |
+| long   | 8                     |              |
 
-printf - *stdio.h*
-    The most important C function!
-    Prints formatted strings
-    printf(<string literal>, <var1>, <var2>, ...)
+### FLOAT types
 
-    Simple printf does not need <var> arguments
-        e.g. printf("hola")
+| Type   | Standard Size (Bytes) | Range              |
+| ------ | --------------------- | ------------------ |
+| float  | 4                     | 7 digit precision  |
+| double | 8                     | 14 digit           |
 
-    printf DOES NOT add a newline at the end
+## `printf - <stdio.h> `
+The most important C function!
 
-    If you want to print variables, you must include formatting
-    placeholders in the string arguement.
-        `int`i = 5;
-        printf("i is %d", i)
+Prints formatted strings
+```
+printf(<string literal>, <var1>, <var2>, ...)
+```
 
-    Type        Formatting Character
-    int             %d
-    long            %ld
-    float           %f
-    double          %lf
-                    %0.<x>f will provide x digits
-                            after the floating point
-    char            %c
-    char array      %s
-    pointer         %p
+Simple printf does not need <var> arguments
+
+    e.g. `printf("hola")`
+
+printf DOES NOT add a newline at the end
+
+If you want to print variables, you must include formatting
+placeholders in the string arguement.
+```c
+int i = 5;
+printf("i is %d", i);
+```
+
+| Type       | Formatting Character                                   |
+| ---------- | ------------------------------------------------------ |
+| int        | %d                                                     |
+| long       | %ld                                                    |
+| float      | %f                                                     |
+| double     | %lf                                                    |
+|            | %0.<x>f will provide x digits after the floating point |
+| char       | %c                                                     |
+| char array | %s                                                     |
+| pointer    | %p                                                     |
