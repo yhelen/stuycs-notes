@@ -121,3 +121,46 @@ written. Returns `-1` and sets `errno` if unsuccessful.
 `BUFFER` must be a pointer.
 
 YOU CAN READ AND WRITE BINARY DATA.
+
+# 10/30 Aim: Seek and ye shall find
+
+C is pass-by-value!! If you want the fxn to modify the argument, pass a pointer.
+(Which is why read/write take pointers)
+
+## `lseek - <unistd.h>`
+
+Set the current position in an open file.
+
+```
+lseek( <FILE DESCRIPTOR>, <OFFSET>, <WHENCE> )
+```
+
+* offset: Number of bytes to move the position by. Can be negative.
+* whence:
+    - Where to measure the offset from.
+        * `SEEK_SET` offset is evaluated from the beginning of the file
+        * `SEEK_CUR` offset is relative to the current position in the file
+        * `SEEK_END` offset is evaluated from the end of the file
+    - Returns the number of bytes the current position is from the beginning
+      of the file, or -1 (errno)
+
+## `stat - <sys/stat.h>`
+
+Get information about a file (metadata)
+
+```
+stat( <PATH>, <STAT BUFFER> )
+
+
+struct stat sb;
+stat("foo", &sb);
+```
+
+* STAT BUFFER
+    * Must be a poitner to a struct stat
+    * All teh file information gets put into the stat buffer
+    * Some of the fields in struct stat:
+        * `st_size` - file size in bytes
+        * `st_uid`, `st_gid` - user id, group id
+        * `st_mode` - file permissiosn
+        * `st_atime`, `st_mtime` - last access, last modfiication
