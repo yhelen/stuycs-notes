@@ -157,10 +157,15 @@ stat("foo", &sb);
 ```
 
 * STAT BUFFER
-    * Must be a poitner to a struct stat
-    * All teh file information gets put into the stat buffer
-    * Some of the fields in struct stat:
+    - Must be a poitner to a struct stat
+    - All teh file information gets put into the stat buffer
+    - Some of the fields in struct stat:
         * `st_size` - file size in bytes
         * `st_uid`, `st_gid` - user id, group id
         * `st_mode` - file permissiosn
         * `st_atime`, `st_mtime` - last access, last modfiication
+            - These are time_t variables. We can use functions in
+              `time.h` to make sense of them:
+                * `ctime( <TIME> )`
+                    - TIME is type time_t *
+                    - Returns the time as a string
