@@ -131,7 +131,7 @@ C is pass-by-value!! If you want the fxn to modify the argument, pass a pointer.
 
 Set the current position in an open file.
 
-```
+```c
 lseek( <FILE DESCRIPTOR>, <OFFSET>, <WHENCE> )
 ```
 
@@ -169,3 +169,59 @@ stat("foo", &sb);
                 * `ctime( <TIME> )`
                     - TIME is type time_t *
                     - Returns the time as a string
+
+# 11/01 Aim: Where do compsci priests keep their files? In directory!
+
+## Directories
+
+A *nix directory is a file containing the names of the files within the
+directory along with basic information, like file type.
+
+Moving files into/out of a directory means changing the directory file,
+not actualy moving any data.
+
+## `opendir - <dirent.h>`
+
+Open a directory file.
+
+This will not change the current working directory (cwd), it only allows
+your program to read the contetns of the directory file.
+
+```
+opendir( <PATH> )
+```
+
+Returns a pointer to a directory stream (`DIR *`)
+
+## `closedir - <dirent.h>`
+
+Closes the directory stream and frees teh pointer associated with it.
+
+```
+closedir( <DIRECTORY STREAM *> )
+```
+
+## `readdir - <dirent.h>`
+
+```
+readdir( <DIRECTORY STREAM *> )
+```
+
+Returns a pointer to the next entry in a directory stream, or NULL if
+all the entries have already been returned.
+
+### `struct dirent - <sys/types.h>`
+
+Directory struct that contains information stored in a directory file.
+
+Some of the data members:
+* `d_name`: Name of the file
+* `d_type`: File type as an int
+
+example:
+```c
+DIR * d;
+d = opendir( "somedir" );
+struct dirent *entry;
+entry = readdir(d);
+```
