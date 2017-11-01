@@ -1,32 +1,32 @@
 # Systems
-    * [[sys/intro_to_c.md]]
-    * [[sys/arrays_pointers.md]]
-    * [[sys/strings.md]]
-    * [[sys/functions_and_headers.md]]
-    * [[sys/make.md]]
-    * [[sys/structs.md]]
-    * [[sys/memory.md]]
-    * [[sys/debugging_tools.md]]
+    * [sys/intro_to_c.md](sys/intro_to_c.md)
+    * [sys/arrays_pointers.md](sys/arrays_pointers.md)
+    * [sys/strings.md](sys/strings.md)
+    * [sys/functions_and_headers.md](sys/functions_and_headers.md)
+    * [sys/make.md](sys/make.md)
+    * [sys/structs.md](sys/structs.md)
+    * [sys/memory.md](sys/memory.m)
+    * [sys/debugging_tools.md](sys/debugging_tools.md)
     * [sys/bits.md](sys/bits.md)
     * [sys/files.md](sys/files.md)
 
 # Softdev
-    * September:
-        - [[sd/09-19-17]]
-        - [[sd/09-20-17]]
-        - [[sd/09-23-17]]
-        - [[sd/09-27-17]]
-        - [[sd/09-28-17]]
-        - [[sd/09-29-17]]
-    * October:
-        - [[sd/10-02-17]]
-        - [[sd/10-03-17]]
-        - [[sd/10-06-17]]
-        - [[sd/10-10-17]]
-        - [[sd/10-11-17]]
-        - [[sd/10-12-17]]
-        - [[sd/10-13-17]]
-        - [[sd/10-16-17]]
-        - [[sd/10-17-17]]
-        - [[sd/10-18-17]]
-        - [sd/10-30-17](sd/10-30-17)
+## September:
+    - [sd/09-19-17](sd/09-19-17)
+    - [sd/09-20-17](sd/09-20-17)
+    - [sd/09-23-17](sd/09-23-17)
+    - [sd/09-27-17](sd/09-27-17)
+    - [sd/09-28-17](sd/09-28-17)
+    - [sd/09-29-17](sd/09-29-17)
+## October:
+    - [sd/10-02-17](sd/10-02-17)
+    - [sd/10-03-17](sd/10-03-17)
+    - [sd/10-06-17](sd/10-06-17)
+    - [sd/10-10-17](sd/10-10-17)
+    - [sd/10-11-17](sd/10-11-17)
+    - [sd/10-12-17](sd/10-12-17)
+    - [sd/10-13-17](sd/10-13-17)
+    - [sd/10-16-17](sd/10-16-17)
+    - [sd/10-17-17](sd/10-17-17)
+    - [sd/10-18-17](sd/10-18-17)
+    - [sd/10-30-17](sd/10-30-17)
