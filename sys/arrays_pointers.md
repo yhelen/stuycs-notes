@@ -1,102 +1,120 @@
-_9/18_
+# 9/18 Aim: A vast array of possibilities
 
-# Aim: A vast array of possibilities
+## Data Types and Variables
 
-Data Types and Variables
-    Character literals are single characters inside ''
-        eg. 'a', '*', ...
-    String literals exists, even though there is no String data type
-        eg. "hello", "you smell"
-    The order that identifiers are declared in matters.
-        This includes functions, so they must be declared before use.
+* Character literals are single characters inside ''
+    - eg. `'a'`, `'*'`, ...
+* String literals exists, even though there is no String data type
+    - eg. `"hello"`, `"you smell"`
+* The order that identifiers are declared in matters.
+    - This includes functions, so they must be declared before use.
 
-    Variables cannot be declared inside for loop statements
-    but they can be initialized.
+Variables cannot be declared inside for loop statements
+but they can be initialized.
 
-    Any variable type can be declared an "unsigned variable that
-    the variable will never be negative.
-        The lower bound of any unsigned variable is 0
-        The upper bound will be greater than the signed version
-        eg. unsigned char x;
-            0 <= x <= 255
+Any variable type can be declared an "unsigned variable that
+the variable will never be negative.
+* The lower bound of any unsigned variable is 0
+* The upper bound will be greater than the signed version
+    - eg. `unsigned char x; // 0 <= x <= 255`
 
-    All boolean values are numbers:
-        0 is false
-        anything else is true
+All boolean values are numbers:
+* 0 is false. Anything else is true
 
-        MISTAKE:
-        if(x = 6) {...}
-        NEEDS TO BE *if(x==6)*
+*MISTAKE:*  
+`if(x = 6) {...}  `
+NEEDS TO BE `if(x==6)  `
 
-Memory Management
-    Memory allocation either happens at compile time or at runtime (dynamic)
-    Compiler Allocated Memory
-        Packaged with the binary of the program
+## Memory Management
 
-        There is no standard default value
+Memory allocation either happens at compile time or at runtime (dynamic)
 
-        Variables and arrays are allocated here.
-            eg. float a
-                int b[5]
+### Compiler Allocated Memory
 
-        Arrays
-            Must have a fixed size set at declaration as a literal.
+* Packaged with the binary of the program
+* There is no standard default value
+* Variables and arrays are allocated here.
 
-            There is no length function
-                You CAN use the *sizeof()* to find the amount of memory allocated
-                to that variable.
+```c
+float a
+int b[5]
+```
 
-            There is no boundary checking
+#### Arrays
 
-    Segmentation fault: Program has accessed memory it should not
+Must have a fixed size set at declaration as a literal.
+
+There is no length function
+* You CAN use the `sizeof()` to find the amount of memory allocated
+  to that variable.
+
+There is no boundary checking
+
+Segmentation fault: Program has accessed memory it should not
+
 ---
-_9/20_
 
-# Aim: Try not to hurt yourself, the point is sharp.
+# 9/20 Aim: Try not to hurt yourself, the point is sharp.
 
-Pointers
-    Variables designed to store memory addresses
-        (array variable is a kind of pointer)
+## Pointers
 
-    * is used to declare a variable as a pointer type
-        eg. int *p, double *q, char *r
-            (you can put a space after the *)
-    & is used to get the address of a variable (address of operator)
+Variables designed to store memory addresses
+* (array variable is a kind of pointer)
 
-    & is also used as the deference operator
-        It accesses the value at the memory location stored in a pointer.
+`*` is used to declare a variable as a pointer type
 
-    All pointer variable types are the same size.
+`int *p, double *q, char *r`
 
-    Pointer Arithmetic
-        int *p = &i;
-        char *c = &i;
+(you can put a space after the *)
 
-        p++; // will add 4 to p
-        c++; // will add 1 to p
+& is used to get the address of a variable (address of operator)
 
-        arrays work as so:
-        arr[i] means *(arr+i)
+& is also used as the deference operator
+* It accesses the value at the memory location stored in a pointer.
+
+All pointer variable types are the same size.
+
+## Pointer Arithmetic
+
+```c
+int *p = &i;
+char *c = &i;
+
+p++; // will add 4 to p
+c++; // will add 1 to p
+
+arrays work as so:
+arr[i] means *(arr+i)
+```
+
 ---
-_9/25_
 
-# Aim: How to write functioning code
+# 9/25 Aim: How to write functioning code
 
 Seeding a random num generator (usually EPOCH time in other languages by default)
 
-Arrays and Pointers
-    Array variables are immutable pointers
+## Arrays and Pointers
+Array variables are immutable pointers
 
-    Pointers can be assigne to array variables.
-        int ray[5];
-        int *rp = ray;
+Pointers can be assigned to array variables.
+```c
+    int ray[5];
+    int *rp = ray;
 
-        ray[3] <==> ?
-                    *(rp + 3)
-        ALSO LEGAL:
-        3[ray] = *(3 + ray)
+    ray[3]; //<==> ?
+            //     *(rp + 3)
+```
 
-        a[i] notation is shorthand for *(a + i)
-        in fact...
-            a[i] <==> *(a + i)
-            i[a] <==> *(i + a)
+ALSO LEGAL:
+
+```c
+    3[ray] = *(3 + ray)
+```
+
+`a[i]` notation is shorthand for `*(a + i)`
+in fact...
+
+```c
+    a[i] <==> *(a + i)
+    i[a] <==> *(i + a)
+```
