@@ -1,43 +1,52 @@
-_9/25_
+# 9/25 Aim: How to write functioning code
 
-# Aim: How to write functioning code
 p++ (return then increment)
 ++p (increment then return)
 
-Writing Functions
-    function headers
-        <return type> <name> (<parameters>)
+## Writing Functions
+function headers:
 
-    All functions are pass by value
-        Functions arguments are new variables that contain a copy of the
-        data passed to them.
+```
+<return type> <name> (<parameters>)
+```
 
-    double a = 2.3;
-    foo(a);
-    void foo(double x)
-        x = 19;
+* All functions are pass by value
+    - Functions arguments are new variables that contain a copy of the
+    data passed to them.
 
-    *a* will still be 2.3
+```c
+double a = 2.3;
+foo(a);
 
-    double a[5];
-    foo(a);
-    void foo(double *x)
-        x[0] = 23;
-    `MODIFIES THE ORIGINAL ARRAY`
+void foo(double x) {
+    x = 19;
+}
+
+// `a` will still be 2.3
+
+
+double a[5];
+foo(a);
+void foo(double *x)
+    x[0] = 23;
+// MODIFIES THE ORIGINAL ARRAY
+```
+
 ---
-_9/26_
 
-# Aim: Let's Head to Function Town
+# 9/26 Aim: Let's Head to Function Town
 
 Writing a function with a function being passed in: you really pass a pointer
 to the array not a copy of the array
 
 You can declare a function header before use OR in a `.h` file:
+
 ```c
 void fxn_name(int *, char);
 ```
 
-If in a `.h` file, remember to include:
+If using a `.h` file, remember to include:
+
 ```c
 #include "header_name.h"
 ```
