@@ -1,55 +1,66 @@
-_10/03_
+# 10/03 Aim: Make it so
 
-# Aim: Make it so
+## Separate compiliation
 
-Separate compiliation
-    You can combine multiple c files into a c program by including them
-    all in one gcc command.
-        ex.
-            `gcc test.c string.c foo.c woohoo.c`
+You can combine multiple c files into a c program by including them
+all in one gcc command.
 
-    You cannot have duplicate function or global vairable names
-    across these files.
+ex.
+```
+gcc test.c string.c foo.c woohoo.c
+```
 
-    There must be a main function in order to create an executable program.
+You cannot have duplicate function or global vairable names
+across these files.
 
-    gcc -c
-        Will compile a c file into a .o file, it is not a fully
-        functional program, but it is compiled code. Do this to
-        compile a .c file that does not contain a main() function.
+There must be a main function in order to create an executable program.
 
-    .o files can be linked together with .c files through gcc
+## `gcc -c`
 
-Make
-    Create compiling instructions and setup dependencies
+Will compile a c file into a .o file, it is not a fully
+functional program, but it is compiled code. Do this to
+compile a .c file that does not contain a main() function.
 
-    Standard name for the file is `makefile`
+`.o` files can be linked together with .c files through gcc
 
-    syntax:
-        <TARGET>: <DEPENDENCIES>
-        TAB<RULES>
+## Make
+Create compiling instructions and setup dependencies
 
-EXAMPLE `makefile`:
+Standard name for the file is `makefile`
+
+syntax:
+```
+<TARGET>: <DEPENDENCIES>
+	<RULES>
+```
+
+EXAMPLE
+
+```
 all: dwstring.o main.o
-_TAB_ gcc -o strtest dwstring.o main.o
+	gcc -o strtest dwstring.o main.o
 
 dwstring.o: dwstring.c dwstring.h
-_TAB_ gcc -c dwstring.c
+	gcc -c dwstring.c
 
 main.o: main.c dwstring.h
-_TAB_ gcc -c main.c
+	gcc -c main.c
+```
 
-    Good idea to make the first command not a filename.
-    Otherwise won't run it if file hasn't changed.
+Good idea to make the first command not a filename.
+Otherwise won't run it if file hasn't changed.
 
-    Calling `make <TARGET>` will run just that target.
+Calling `make <TARGET>` will run just that target.
 
-Common Targets:
-all: `DEPENDENCIES`
-    `INSTRUCTIONS`
+### Common Targets:
+
+```
+all: DEPENDENCIES
+	INSTRUCTION`
 
 run: all
-    ./executable_file
+	./executable_file
 
 clean:
-    rm executable_file
+	rm executable_file
+```

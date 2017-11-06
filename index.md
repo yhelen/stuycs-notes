@@ -5,7 +5,7 @@
     * [sys/functions_and_headers.md](sys/functions_and_headers.md)
     * [sys/make.md](sys/make.md)
     * [sys/structs.md](sys/structs.md)
-    * [sys/memory.md](sys/memory.m)
+    * [sys/heap_memory.md](sys/heap_memory.md)
     * [sys/debugging_tools.md](sys/debugging_tools.md)
     * [sys/bits.md](sys/bits.md)
     * [sys/files.md](sys/files.md)

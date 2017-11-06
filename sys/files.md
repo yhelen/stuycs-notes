@@ -31,6 +31,8 @@ There are 3 files always open in the table:
 * 1 or `STDOUT_FILENO`: stdout
 * 2 or `STDERR_FILENO`: stderr
 
+---
+
 # 10/25 Aim: Opening up a world of possibilities
 
 ## `open - <fcntl.h>`
@@ -64,6 +66,8 @@ can be found in `errno`.
     O_APPEND = 8            00001000
     O_WRONLY | O_APPEND =   00001001
     ```
+
+---
 
 # 10/26 Aim: Read your writes!
 
@@ -122,6 +126,8 @@ written. Returns `-1` and sets `errno` if unsuccessful.
 
 YOU CAN READ AND WRITE BINARY DATA.
 
+---
+
 # 10/30 Aim: Seek and ye shall find
 
 C is pass-by-value!! If you want the fxn to modify the argument, pass a pointer.
@@ -169,6 +175,8 @@ stat("foo", &sb);
                 * `ctime( <TIME> )`
                     - TIME is type time_t *
                     - Returns the time as a string
+
+---
 
 # 11/01 Aim: Where do compsci priests keep their files? In directory!
 

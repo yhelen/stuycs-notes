@@ -29,6 +29,8 @@ int x; float f; double d;
 scanf("%d %f %lf", &x, &f, &d);
 ```
 
+---
+
 # 11/6 Aim: Are your processes running? Then you should catch them!
 
 ## `fgets - <stdio.h>`

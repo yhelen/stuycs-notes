@@ -1,83 +1,89 @@
-_10/10_
+# 10/10 Aim: If you don't pay attention you'll get into a heap of trouble!
 
-# Aim: If you don't pay attention you'll get into a heap of trouble!
+## Stack memory vs Heap memory
+Computer programs separate memory usage into two parts: stack and heap.
 
-Stack memory vs Heap memory
-    Computer programs separate memory usage into two parts: stack and heap.
+Every program can have its own stack and heap.
 
-    Every program can have its own stack and heap.
+## Stack memory
+Stores all normally delcared variables (including pointers and structs),
+arrays and function calls
 
-    Stack memory
-        Stores all normally delcared variables (including pointers and structs),
-        arrays and function calls
+Functions are pushed onto the stack in the order they are called, and
+popped off when completed.
 
-        Functions are pushed onto the stack in the order they are called, and
-        popped off when completed.
+When a function is popped off the stack, the stack memory associated
+with it is released.
 
-        When a function is popped off the stack, the stack memory associated
-        with it is released.
+## Heap Memory
+Stores dynamically allocated memory.
 
-    Heap Memorythat this occurs
-        Stores dynamically allocated memory
+Data will remain in the heap until it is released.
+(or the program terminates).
 
-        _Data will remain in the heap until it is released._
-            (or the program terminates)
+Can be accessed through pointers.
 
-        Can be accessed through pointers.
+Can be accessed across many functions.
 
-        Can be accessed across many functions.
+# 10/12 Aim: malloc & free: The dynamic duo!
 
-_10/12_
+## Dynamic Memory Allocation
 
-# Aim: malloc & free: The dynamic duo!
+### `malloc(size_t size)`
 
-Dynamic memory allocation
-    malloc(size_t size)
-        Allocates x bytes of memory (From the heap)
-        Returns the address at the beginning of the allocation
-        Returns a void *, always typecast to the correct pointer type!!
+Allocates x bytes of memory (From the heap)
 
-        int *p;
-        p = (int *) malloc(5 * sizeof(int));
+Returns the address at the beginning of the allocation
 
-    free(void *ptr)
-        Releases dynamically allocated memory.
+Returns a `void *`, always typecast to the correct pointer type!!
 
-        Takes one paramater, a pointer to the beginning of a
-        dynamically allocated block of memory.
+```c
+int *p;
+p = (int *) malloc(5 * sizeof(int));
+```
 
-        Every call to malloc/calloc should have a corresponding
-        call to free.
+### `free(void *ptr)`
+Releases dynamically allocated memory.
 
-        Only frees if it is the original pointer.
-        Otherwise, segfaults.
+Takes one paramater, a pointer to the beginning of a
+dynamically allocated block of memory.
 
-        int *p;
-        p = (int *)malloc(20);
-        free(p)
+Every call to malloc/calloc should have a corresponding call to free.
 
-    calloc(size_t n, size_t x)
-        Allocates n * x bytes of memory
+Only frees if it is the original pointer. Otherwise, segfaults.
 
-        Ensures that each bit is set to 0
+```c
+int *p;
+p = (int *)malloc(20);
+free(p)
+```
 
-        Works like mallloc in all other ways
+### `calloc(size_t n, size_t x)`
+Allocates `n * x` bytes of memory
 
-        int *p;
-        p = (int *) calloc(5, sizeof(int));
+Ensures that each bit is set to 0
 
-    realloc(void *p, size_t x)
-        Changes the amount of memory allocated to a given block.
+Works like `malloc` in all other ways
 
-        p must be a pointer to the beginning of an allocated block
-        of memory, but it does not have to be the original pointer.
+```c
+int *p;
+p = (int *) calloc(5, sizeof(int));
+```
 
-        If x is smaller than the oriinal size of allocation, the
-        extra bytes will be released.
+### `realloc(void *p, size_t x)`
+Changes the amount of memory allocated to a given block.
 
-        If x is larger, it will extend the memory OR reassign and
-        copy the information.
+`p` must be a pointer to the beginning of an allocated block of memory,
+but it does not have to be the original pointer.
 
-        int *p;
-        p = (int *)malloc(20);
-        p = (int *)realloc(p, 40);
+If `x` is smaller than the oriinal size of allocation, the extra bytes
+will be released.
+
+If `x` is larger, it will extend the memory OR reassign and copy the
+information.
+
+```c
+int *p;
+p = (int *)malloc(20);
+p = (int *)realloc(p, 40);
+```
