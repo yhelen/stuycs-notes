@@ -10,6 +10,7 @@
     * [sys/bits.md](sys/bits.md)
     * [sys/files.md](sys/files.md)
     * [sys/io.md](sys/io.md)
+    * [sys/processes.md](sys/processes.md)
 
 # Softdev
 ## September:
