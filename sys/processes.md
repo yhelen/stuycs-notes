@@ -80,3 +80,12 @@ the signal function:
 ```c
 signal( SIGNUMBER, sighandler )
 ```
+
+# 11/9 Aim: Time to make an executive decision
+
+## The `exec` family - `<unistd.h>`
+
+There are a number of c functions that can be used to run other programs
+from within.
+
+Replaces the current process with the new program.
