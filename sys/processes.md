@@ -89,3 +89,18 @@ There are a number of c functions that can be used to run other programs
 from within.
 
 Replaces the current process with the new program.
+
+# 11/13 Aim: What the fork?
+
+## Managing Sub-Processes
+
+### `fork() - <unistd.h>`
+
+Creates a separate process based on the current one, the new process
+is called a child, the original one is the parent.
+
+The child process is a duplicate of the parent process.
+All parts of the parent process are copied, including stack & heap
+memory, and the file table.
+
+Returns 0 to the child and the child's pid to the parent or -1 (errno).
