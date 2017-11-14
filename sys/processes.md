@@ -81,6 +81,8 @@ the signal function:
 signal( SIGNUMBER, sighandler )
 ```
 
+---
+
 # 11/9 Aim: Time to make an executive decision
 
 ## The `exec` family - `<unistd.h>`
@@ -89,6 +91,8 @@ There are a number of c functions that can be used to run other programs
 from within.
 
 Replaces the current process with the new program.
+
+---
 
 # 11/13 Aim: What the fork?
 
@@ -104,3 +108,21 @@ All parts of the parent process are copied, including stack & heap
 memory, and the file table.
 
 Returns 0 to the child and the child's pid to the parent or -1 (errno).
+
+---
+
+# 11/14 Aim: Wait for it
+
+## `wait - <unistd.h>`
+
+Stops a parent process from running until any child has provided status
+information to the parent via a signal. (usually the child has exited)
+
+Returns the pid of the child that exited, or -1 (errno).
+
+```c
+wait( int *status )
+```
+
+The parameter (`status`) is used to store information about how the process
+has exited.
