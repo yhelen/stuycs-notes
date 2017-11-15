@@ -126,3 +126,28 @@ wait( int *status )
 
 The parameter (`status`) is used to store information about how the process
 has exited.
+
+---
+
+# 11/15 Aim: Playing Favorites
+
+## Endian-ness
+
+### Big-Endian vs. Little-Endian
+
+Order of the bytes:
+* Little-endian: Least significant bytes are first.
+* Big-endian: Most significant bytes are first.
+
+Note: Order of the bits remain the same.
+
+## `waitpid - <unistd.h>`
+
+Waits for a specific child.
+
+```c
+waitpid(pid, status, options)
+```
+
+* `pid`: The pid of the specific child to look for. If -1, will look for any.
+* `options`: Can set other behavior for wait, if 0, will work normally.
