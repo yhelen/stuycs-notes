@@ -1,4 +1,4 @@
-[#](#) 9/11 Aim: Let's C what you can do
+# 9/11 Aim: Let's C what you can do
 
 ## Basic C code
 
