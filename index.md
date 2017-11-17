@@ -11,6 +11,7 @@
     * [sys/files.md](sys/files.md)
     * [sys/io.md](sys/io.md)
     * [sys/processes.md](sys/processes.md)
+    * [sys/pipe.md](sys/pipe.md)
 
 # Softdev
 ## September:
