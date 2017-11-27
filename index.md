@@ -12,6 +12,7 @@
 * [sys/io.md](sys/io.md)
 * [sys/processes.md](sys/processes.md)
 * [sys/pipe.md](sys/pipe.md)
+* [sys/redirection.md](sys/redirection.md)
 
 # Softdev
 ## September:
