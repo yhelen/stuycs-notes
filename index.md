@@ -13,6 +13,7 @@
 * [sys/processes.md](sys/processes.md)
 * [sys/pipe.md](sys/pipe.md)
 * [sys/redirection.md](sys/redirection.md)
+* [sys/preprocessor.md](sys/preprocessor.md)
 
 # Softdev
 ## September:
