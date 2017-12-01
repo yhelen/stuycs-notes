@@ -14,6 +14,7 @@
 * [sys/pipe.md](sys/pipe.md)
 * [sys/redirection.md](sys/redirection.md)
 * [sys/preprocessor.md](sys/preprocessor.md)
+* [sys/shared-memory.md](sys/shared_memory.md)
 
 # Softdev
 ## September:
