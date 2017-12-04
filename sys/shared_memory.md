@@ -53,3 +53,39 @@ shmmat( descriptor, address, flags )
 * `address`: If 0, the OS will provide the appropriate address.
 * `flags`: Usually 0, there is only one useful flags.
     - `SHM_RDONLY`: makes the memory read only
+
+---
+
+# 12/04 Aim: Memes
+
+## Shared memory (cont.)
+
+#### `shmdt`
+
+Detach a variable from a shared memory segment.
+
+Returns 0 upon success or -1 upon failure.
+
+```c
+shmdt( pointer )
+```
+
+* `pointer`: The address used to access the segment.
+
+#### `shmctl`
+
+Perform operations on the shared memory segment. Each shared memory segment
+has metadata that can be stored in a struct (`struct shmid_ds`)
+
+Some of the metadata stored: last access, size, pid of creator, pid of
+last modification.
+
+```c
+shmctl( descriptor, command, buffer )
+```
+
+* `descriptor`: Return value of shmget
+* `commands`:
+    - `IPC_RMID`: Remove a shared memory segment
+    - `IPC_STAT`: Populate the buffer (`struct shmid_ds`) with segment metadata
+    - `IPC_SET`: Set some of the segment metadata from buffer
