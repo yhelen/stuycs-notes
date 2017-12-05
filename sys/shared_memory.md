@@ -89,3 +89,60 @@ shmctl( descriptor, command, buffer )
     - `IPC_RMID`: Remove a shared memory segment
     - `IPC_STAT`: Populate the buffer (`struct shmid_ds`) with segment metadata
     - `IPC_SET`: Set some of the segment metadata from buffer
+
+---
+
+# 12/05 Aim: How do you flag down a resource?
+
+**DN**: How would you control access to a shared resource like a file, pipe,
+or shared memory, such that you could ensure no read/write conflicts
+occurred?
+
+## Semaphores
+
+(Created by Edsger Dijkstra)
+
+IPC construct used to contro laccess to a shared resource (like a file
+or shpared memory). Most commonly, it's used as a counter representing
+how many processes can access a resource at a given time.
+
+If a semaphore has a value of 3, then it can have 3 active "users". If
+it has a value of 0, then it is unavailable.
+
+Most semaphore operators are "atomic", meaning they will not be split
+up into multiple processor instructions.
+
+### Semaphore operations
+
+1. Create a semaphore
+2. Set an initial value
+3. Remove a semaphore
+4. `Up(S) / V(S)` - atomic:
+    - Release the semaphore to signal you are done with its associated
+      resource
+    - Pseudocode: `S++`
+5. `Down(S) / P(S)` - atomic:
+    - Attempt to take the semaphore
+    - If the semaphore is 0, wait for it to be available
+    - Pseudocode:
+        - `while (S == 0) {block} S--;`
+
+### Semaphores in C - `<sys/types.h> <sys/ipc.h> <sys/sem.h>`
+
+#### `semget`
+
+Create/Get access to a semaphore. This is not the same as `Up(S)` or `Down(S)`,
+it does not modify the semaphore.
+
+Returns a semaphore descriptor or -1 (errno).
+
+```c
+semget( <KEY>, <AMOUNT>, <FLAGS>
+```
+
+* `KEY`: Unique semaphore identifier (use ftok)
+* `AMOUNT`: Semaphores are stored as sets of one or more. The number of
+  semaphores to create/get.
+* `FLAGS`: Includes permissions for the Semaphore, combine with bitwise or
+    - `IPC_CREAT`
+    - `IPC_EXCL`
