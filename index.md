@@ -15,6 +15,7 @@
 * [sys/redirection.md](sys/redirection.md)
 * [sys/preprocessor.md](sys/preprocessor.md)
 * [sys/shared-memory.md](sys/shared_memory.md)
+* [sys/semaphores.md](sys/semaphores.md)
 
 # Softdev
 ## September:
