@@ -39,14 +39,14 @@ shmget( key, size, flags )
       value to all 0s
     - `IPC_EXCL`: Fail if the segment already exists and `IPC_CREAT` is on
 
-#### `schmat`
+#### `shmat`
 
 Attach a shared memory segment to a variable.
 
 Returns a pointer to the segment, or -1 (errno).
 
 ```c
-shmmat( descriptor, address, flags )
+shmat( descriptor, address, flags )
 ```
 
 * `descriptor`: the return value of `shmget`

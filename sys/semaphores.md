@@ -90,7 +90,7 @@ semop( <DESCRIPTOR>, <OPERATOR>, <AMOUNT>)
 struct sembuf {
     short sem_op;
     short sem_num;
-    short sem_flag;
+    short sem_flg;
 }
 ```
 
@@ -99,7 +99,7 @@ struct sembuf {
     * `Down(S)`: Any negative number
     * `Up(S)`: Any positive number
     * `0`: Block until the semaphore reaches 0
-* `sem_flag`:
+* `sem_flg`:
     * `SEM_UNDO`: Allow the OS to undo the given operator. Useful in the
       event that a program exits before it could release a semaphore.
     * `IPC_NOWAIT`: Instead of waiting for teh semaphore to be available,
