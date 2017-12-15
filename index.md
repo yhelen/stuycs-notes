@@ -16,7 +16,7 @@
 * [sys/preprocessor.md](sys/preprocessor.md)
 * [sys/shared-memory.md](sys/shared_memory.md)
 * [sys/semaphores.md](sys/semaphores.md)
-* [sys/process-communication.md](sys/process-communication.md)
+* [sys/servers.md](sys/servers.md)
 
 # Softdev
 ## September:

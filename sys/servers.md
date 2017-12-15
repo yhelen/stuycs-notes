@@ -40,3 +40,7 @@ to and from each other.
 4. Reset:
     1. Client exists, server closes any connections to the client.
     2. Server recreats the WKP & waits for another client.
+
+# 12/15 Aim: Always tip your servers
+
+
