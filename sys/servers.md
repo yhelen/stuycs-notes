@@ -41,6 +41,19 @@ to and from each other.
     1. Client exists, server closes any connections to the client.
     2. Server recreats the WKP & waits for another client.
 
-# 12/15 Aim: Always tip your servers
+# 12/16 Aim: Always tip your servers
 
+## Forking server/client design pattern
 
+1. Setup (from before)
+2. Handshake
+    1. Client connects to serve and sends private FIFO name. Client waits
+       for a response from the server.
+    2. Server receives client's message and forks off a subserver.
+    3. Subserver connects to cient FIFO, sending an initial acknowledgement
+       message.
+    4. Client receives subserver's message, removes its private FIFO.
+3. Operation
+    1. Server removes WKP and closes any connections to client.
+    2. Server recreates WKP and waits for a new connection.
+    3. Subserver and client send information back and forth.
