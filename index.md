@@ -17,6 +17,7 @@
 * [sys/shared-memory.md](sys/shared_memory.md)
 * [sys/semaphores.md](sys/semaphores.md)
 * [sys/servers.md](sys/servers.md)
+* [sys/networking.md](sys/networking.md)
 
 # Softdev
 ## September:

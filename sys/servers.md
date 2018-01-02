@@ -47,7 +47,7 @@ to and from each other.
 
 1. Setup (from before)
 2. Handshake
-    1. Client connects to serve and sends private FIFO name. Client waits
+    1. Client connects to server and sends private FIFO name. Client waits
        for a response from the server.
     2. Server receives client's message and forks off a subserver.
     3. Subserver connects to cient FIFO, sending an initial acknowledgement
