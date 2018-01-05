@@ -62,3 +62,123 @@ Most use the Transmission Control Protocol (TCP).
 "Connectionless" - an established connection is not required.
 Data sent may be received out of order (or not at all).
 Uses the User Datagram Protocol.
+
+---
+
+# 1/05 Aim: Stop. Collaborate, and listen
+
+## `socket - <sys/socket.h>`
+
+Creates a socket. Returns a socket descriptor (int that works like a
+file descriptor).
+
+```c
+socket(domain, type, protocol)
+```
+
+* `domain`: type of address
+    * `AF_INET` or `AF_INET6`
+* `type`: `SOCK_STREAM` or `SOCK_DGRAM`
+* `protocol`: Combination of domain and type settings
+    * If set to `0` the OS will set to the correct protocol
+
+```c
+// example
+int sd = socket(AF_INET, SOCK_STREAM, 0);
+```
+
+System library calls use a `struct addrinfo` to represent network addresses
+(containing information like IP address, port, protocol)
+
+### `struct addrinfo`
+
+#### .ai_family
+* `AF_INET`: IPv4
+* `AF_INET6`: IPv6
+* `AF_UNPSEC`: IPv4 or IPv6
+
+#### .ai_socktype
+* `SOCK_STREAM`
+* `SOCK_DGRAM`
+
+#### .ai_flags
+* `AI_PASSIVE`: Automatically set to any incoming IP address
+
+#### .ai_addr
+Pointer to a `struct sockaddr` containing the IP address
+
+#### .ai_addrlen
+Size of the address in bytes
+
+## `getaddrinfo - <sys/types.h> <sys/socket.h> <netdb.h>`
+
+Lookup information about the desired network address and get one or more
+matching `struct addrinfo` entries.
+
+```c
+getaddrinfo(node, service, hints, results);
+```
+
+* `node`: String containing an IP address or hostname to lookup
+    * If `NULL`, use the local machine's IP address
+* `service`: String with a port number or service name (if the service
+  is in `/etc/services`
+* `hints`: Pointer to a `struct addrinfo` used to provide settings for
+  the lookup (type of address, etc)
+* `results`: Pointer to a `struct addrinfo` that will be a linked list
+  containing entries for each matching address.
+
+`getaddrinfo` will allocate memory for these structs
+
+### Using `getaddrinfo`
+```c
+struct addr info *hints, *results;
+hints = (struct addrinfo *)calloc(1, sizeof(struct addrinfo));
+hints->ai_family = AF_INET;
+hints->ai_socktype = SOCK_STREAM; // TCP socket
+hints->ai_flags = AI_PASSIVE; //only needed on server
+getaddrinfo(NULL, "80", hints, &results);
+// client: getaddrinfo("149.89.150.100", "9845", hints, &results);
+// do stuff...
+free(hints)
+freeaddrinfo(results);
+```
+
+## `bind` (server only) - `<sys/socket.h>`
+
+Binds the socket to an address and port. Returns 0 (success) or -1 (failure).
+
+```c
+bind(socket descriptor, address, address length)
+```
+
+* `socket descriptor`: return value of `socket`
+* `address`: pointer to a `struct sockaddr` representing the address
+* `address length`: size of the address, in bytes
+
+`address` and `address length` can be retrieved from `getaddrinfo`
+
+### Using `bind`
+```c
+// create socket
+ind sd;
+sd = socket(AF_INET, SOCK_STREAM, 0);
+
+struct addrinfo * hints, * results;
+// use getaddrinfo (not shown)
+
+bind(sd, results->ai_addr, results->ai_addrlen);
+```
+
+## `listen` (server only) - `<sys/socket.h>`
+
+Set a socket to passively wait for a connection. Needed for stream sockets.
+Does not block.
+
+```c
+listen(socket descriptor, backlog)
+```
+
+* `socket descriptor`: return value of `socket`
+* `backlog`: Number of connections that can be queued up. Depending on
+  the protocol, this may not do much.
