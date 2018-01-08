@@ -182,3 +182,73 @@ listen(socket descriptor, backlog)
 * `socket descriptor`: return value of `socket`
 * `backlog`: Number of connections that can be queued up. Depending on
   the protocol, this may not do much.
+
+## `accept` (server only) - `<sys/socket.h`
+
+Accept the next client in the queue of a socket in the listen state
+Used for stream sockets.
+Performs the server side of the 3 way handshake.
+Creates a new socket for communicating with the client, the listening
+socket is not modified.
+Returns a descriptor to the new socket.
+Blocks until a connection attempt is made.
+
+```c
+accept(socket descriptor, address, address length);
+```
+
+* `socket descriptor`: descriptor for the listening socket
+* `address`: Pointer to a `struct sockaddr_storage` that will contain
+  information about the new socket after `accept` succeeds.
+* `address length`: Pointer to a variable that will contain the size
+  of the new socket after `accept` succeeds
+
+### Using `listen` and `accept`
+
+```c
+// create socket
+int sd;
+sd = socket(AF_INET, SOCKSTREAM, 0);
+
+// use getaddrinfo and bind
+
+listen(sd, 10);
+int client_socket;
+socklen_t sock_size;
+struct sockaddr_storage client_address;
+
+client_socket = accept(sd,
+                (struct sockaddr_storage *)&client_address, &sock_size);
+```
+
+## `connect` (client only) - `<sys/socket.h> <sys/types.h>`
+
+Connect to a socket currently in the listening state.
+Used for stream sockets.
+Performs the client side of the 3 way handshake.
+Binds the socket to an address and port.
+Blocks until a connection is made (or fails).
+
+```c
+connect(socket descriptor, address, address length)
+```
+
+* `address`: Pointer to a `struct sockaddr` representing the address
+* `address length`: Size of address, in bytes
+
+Retrieved from `getaddrinfo()`
+
+Note that the arguments mirror those of `bind()`
+
+### Using `connect`
+
+```c
+// create socket
+int sd;
+sd = socket(AF_INET, SOCK_STREAM, 0);
+
+struct addrinfo *hints, *results;
+// use getaddrinfo (not shown)
+
+connect(sd, results->ai_addr, results->ai_addrlen);
+```
