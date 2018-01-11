@@ -252,3 +252,64 @@ struct addrinfo *hints, *results;
 
 connect(sd, results->ai_addr, results->ai_addrlen);
 ```
+
+# 01/11 Aim: Cisco in an hour
+
+## Layer Models of Networking
+
+Due to the complexity of network communications, the topic is often
+conceptualized into distinct layers so people can work on specific
+components rather than everything at once.
+
+The bottom layer is the most concrete, with each subsequent layer
+becoming more abstract (relying less on the physical connections and
+more on code).
+
+There are various competing modes including the OSI (Open Systems
+Interconnections) and TCP/IP models.
+
+### TCP/IP Model Layers
+
+1. Application
+2. Transport
+3. Internet
+4. Link
+
+### Link Layer
+
+Point-to-point transmission between devices on the same (local) network.
+
+Combines physically connecting computers with basic addressing and
+transmission protocols.
+
+## Physical Connection
+
+How to transmit bits between two computers
+
+### Link Layer
+
+A brief history of physical connections
+
+#### Thicknet
+
+A single coaxial cable runs along the network. "Vampire taps" cut into
+the cable and connect to a computer.
+
+#### Thinnet
+A single coaxial cable runs along the network. T-Connectors connect
+computers to the main cable.
+
+#### Token Ring
+
+Each computer is connected in a ring to each other. Only one computer has
+command of network resources at a time. This is called "having the token."
+The network sends a "token" throughout the ring, which contains the
+identity of the computer allowed to use the network. All other computers
+must wait to use the network.
+
+#### Ethernet
+
+Multiple computers connect to a single hub or switch.
+
+* Hub: Broadcasts the data to all computers
+* Switch: Sends data to specific computer
