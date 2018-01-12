@@ -313,3 +313,56 @@ Multiple computers connect to a single hub or switch.
 
 * Hub: Broadcasts the data to all computers
 * Switch: Sends data to specific computer
+
+# 01/12 Aim: Cisco in an hour 2: Electric Boogaloo
+
+## Link Layer (cont)
+
+In order for data to be sent between computers. Each computer needs a
+unique address (MAC Address). The data needs to be sent in a standardized
+format (Frames).
+
+### MAC (Media Access Control) Address
+
+6-byte hex address: `2a:00:1e:b9:70:f6`. MAC addresses only need to be
+unique on the same local network.
+
+### Ethernet Frames
+
+Each frame has the following format:
+
+```
+prefix dest source type data checksum
+  8B    6B    6B    2B          4B
+```
+
+* `prefix`: 10101010 x 7 + 10101011
+* `dest` & `source`: MAC addresses
+* `data`: MCU (Maximum transmission unit) of 1500B
+* `checksum`: ensures data integrity
+
+## Internet Layer
+
+Transmission of data between two separate networks. Major features of
+this layer are addressing and routing. Routers are physical devices
+used to connect different local networks. Internet layer traffic
+ignores the specifics of link layer traffic.
+
+### IP Packets
+
+Data sent over the internet layer is formatted into IP packets.
+
+#### IPv4 packet header
+
+type size fragment_info ttl protocol header checksum
+ 2B   2B       4B       1B    1B      2B
+
+* `type`: IPv4/v6, length of header
+* `size`: total size of packet
+* `fragment info`: full payloads may be broken into multiple fragments. Each
+  packet will count the number of fragments and its individual fragment
+  number.
+* `ttl (time-to-live)`: Maximum number of hops a packet can make before
+  reaching its destination.
+* `protocol`: TCP/UDP...
+* `header checksum`: only a checksum of the header, not the full packet
