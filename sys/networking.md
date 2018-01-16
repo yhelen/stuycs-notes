@@ -355,7 +355,7 @@ Data sent over the internet layer is formatted into IP packets.
 #### IPv4 packet header
 
 type size fragment_info ttl protocol header checksum
- 2B   2B       4B       1B    1B      2B
+ 2B   2B       4B       1B    1B          2B
 
 * `type`: IPv4/v6, length of header
 * `size`: total size of packet
@@ -366,3 +366,27 @@ type size fragment_info ttl protocol header checksum
   reaching its destination.
 * `protocol`: TCP/UDP...
 * `header checksum`: only a checksum of the header, not the full packet
+* `source` and `destination`: IPv4 addresses
+* `data`: MTU is 65,535 Bytes
+
+# 01/16 Aim: Cisco in an hour 3: In 3-D
+
+### Routing
+
+Routers may break IPv4 packets into fragments. When a router receives a
+packet, it has 2 options:
+1. Send that packet to the attached local network.
+2. Forward that packet to a different router.
+
+### IPv4/IPv6 Differences
+
+* Address space: 2\^32 vs 2\^128
+* Packet format: In addition to address size change, IPv6 packet headers
+  have less information. They do not include a checksum or fragment info.
+* MTU: IPv6 can allot for an MTU of 2^32 (these are called jumbograms)
+
+IPv6 puts more work onto link layer devices and individual hosts (computers).
+IPv6 does not fragment packets at all, relying on other devices to
+potentially take advantage of jumbograms.
+IPv6 has no checksum, assuming link layer devices and hosts will check for
+data integrity if needed.
