@@ -18,6 +18,7 @@
 * [sys/semaphores.md](sys/semaphores.md)
 * [sys/servers.md](sys/servers.md)
 * [sys/networking.md](sys/networking.md)
+* [sys/cisco-in-an-hour.md](sys/cisco-in-an-hour.md)
 
 # Softdev
 ## September:
