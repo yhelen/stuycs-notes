@@ -20,6 +20,9 @@
 * [sys/networking.md](sys/networking.md)
 * [sys/cisco-in-an-hour.md](sys/cisco-in-an-hour.md)
 
+# Graphics
+* [color](graphics/color.md)
+
 # Softdev
 ## September:
 - [sd/09-19-17](sd/09-19-17.md)
