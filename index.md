@@ -22,6 +22,7 @@
 
 # Graphics
 * [color](graphics/color.md)
+* [line](graphics/line.md)
 
 # Softdev
 ## September:
