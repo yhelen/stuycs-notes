@@ -47,9 +47,9 @@ Optimize `d = f(x + 1, y + 1/2)` calculation at the end:
 * if y increases by 1, `d = d + B`
 
 ```
-x = x<sub>0</sub>, y = x<sub>0</sub>
+x = x0, y = x0
 d = f(x + 1, y + 1/2)
-while x ≤ x<sub>1</sub>
+while x ≤ x1
     plot(x, y)
     if d > 0
         y++
@@ -61,13 +61,46 @@ while x ≤ x<sub>1</sub>
 Optimize `d` calculation in beginning
 
 ```
-d<sub>0</sub> = f(x<sub>0</sub> + 1, y<sub>0</sub> + 1/2)
+d0 = f(x0 + 1, y0 + 1/2)
 DISTRIBUTION...
-              = Ax<sub>0</sub> + By<sub>0</sub> + C + A + 1/2 B
+              = Ax0 + By0 + C + A + 1/2 B
                |___________________________________|
                                 = 0
               = A + 1/2 B
 BUT GET RID OF 1/2 -> SCALE BY 2
-```
 
 2d = 2A + B
+```
+
+```
+x = x0, y = x0
+d = 2A + B
+while x ≤ x1
+    plot(x, y)
+    if d > 0
+        y++
+        d += 2B
+    x++
+    d += 2A
+```
+
+## Octant II?
+
+Possible:
+* (x, y + 1)
+* (x + 1, y + 1)
+
+Changes from Octant I:
+* Change `x ≤ x1` to `y ≤ y1`
+* Switch `x++` `y++` blocks
+* initial changes to `d0 = f(x0 + 1/2, y0 + 1)`, which equals A + 2B
+* if `d < 0` increment x
+
+## Octant VIII?
+
+Possible:
+* (x + 1, y)
+* (X + 1, y - 1)
+
+Changes from Octant I:
+* `d0 = 2A - B`
