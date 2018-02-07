@@ -64,8 +64,8 @@ Optimize `d` calculation in beginning
 d0 = f(x0 + 1, y0 + 1/2)
 DISTRIBUTION...
               = Ax0 + By0 + C + A + 1/2 B
-               |___________________________________|
-                                = 0
+               |_____________|
+                     = 0
               = A + 1/2 B
 BUT GET RID OF 1/2 -> SCALE BY 2
 
