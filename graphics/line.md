@@ -73,7 +73,7 @@ BUT GET RID OF 1/2 -> SCALE BY 2
 ```
 
 ```
-x = x0, y = x0
+x = x0, y = y0
 d = 2A + B
 while x ≤ x1
     plot(x, y)
@@ -104,3 +104,9 @@ Possible:
 
 Changes from Octant I:
 * `d0 = 2A - B`
+
+## Octant VII
+
+Possible:
+* (x, y - 1)
+* (x + 1, y - 1)
