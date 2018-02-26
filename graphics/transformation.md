@@ -22,3 +22,20 @@ E * T or T * E? The second, to preserve dimensions.
 
     4 x 4  x  4 x N  =  4 x N
 ```
+
+## Dilation
+
+```
+(x, y, z) ---D(a,b,c)--> (ax, by, cz)
+
+| a 0 0 0 |   | x |   | ax |
+| 0 b 0 0 |   | y |   | by |
+| 0 0 c 0 | x | z | = | cz |
+| 0 0 0 1 |   | 1 |   | 1  |
+```
+
+## Rotation
+
+```
+(x, y, z) ---Rtheta--> (xcos(theta)-ysin(theta), ycos(theta)+xsin(theta), x)
+```
