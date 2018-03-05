@@ -50,12 +50,21 @@ E * T or T * E? The second, to preserve dimensions.
 
 ```
 (x, y, z) ---Rtheta--> (x, ycos(theta)-zsin(theta), zcos(theta)+ysin(theta))
+1,                0,               0, 0
+0, math.Cos(theta), -math.Sin(theta), 0
+0, math.Sin(theta),  math.Cos(theta), 0
+0,               0,                0, 1
 ```
 
 ### Rotating about y-axis
 
 ```
 (x, y, z) ---Rtheta--> (xcos(theta)+zsin(theta), y, zcos(theta)-xsin(theta))
+mat.AddCol([]float64{math.Cos(theta), 0, math.Sin(theta), 0})
+mat.AddCol([]float64{0, 1, 0, 0})
+mat.AddCol([]float64{-math.Sin(theta), 0, math.Cos(theta), 0})
+mat.AddCol([]float64{0, 0, 0, 1})
+
 ```
 
 ## Combining Transformations

@@ -26,6 +26,7 @@
 * [image-data](graphics/image-data.md)
 * [matrix](graphics/matrix.md)
 * [transformation](graphics/transformation.md)
+* [parametric](parametric)
 
 # Softdev
 ## September:
@@ -65,3 +66,4 @@
 - [sd/02-14-18](sd/02-14-18.md)
 - [sd/02-15-18](sd/02-15-18.md)
 - [sd/02-27-18](sd/02-27-18.md)
+- [sd/02-28-18](sd/02-28-18.md)

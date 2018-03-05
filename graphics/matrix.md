@@ -13,7 +13,7 @@ A 3 x n matrix
 
 M * N: # of columns in M **MUST** equal the number of rows in N
 
-A x B * B x C = A * C
+A x B * B x C = A x C
 
 * Non-commutative
 
