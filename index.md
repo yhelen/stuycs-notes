@@ -27,6 +27,7 @@
 * [matrix](graphics/matrix.md)
 * [transformation](graphics/transformation.md)
 * [parametric](parametric)
+* [spline](spline)
 
 # Softdev
 ## September:
