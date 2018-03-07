@@ -26,8 +26,8 @@
 * [image-data](graphics/image-data.md)
 * [matrix](graphics/matrix.md)
 * [transformation](graphics/transformation.md)
-* [parametric](parametric)
-* [spline](spline)
+* [parametric](parametric.md)
+* [spline](spline.md)
 
 # Softdev
 ## September:
