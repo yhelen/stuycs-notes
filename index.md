@@ -26,9 +26,10 @@
 * [image-data](graphics/image-data.md)
 * [matrix](graphics/matrix.md)
 * [transformation](graphics/transformation.md)
-* [parametric](parametric.md)
-* [spline](spline.md)
-* [3d-shapes](3d-shapes)
+* [parametric](graphics/parametric.md)
+* [spline](graphics/spline.md)
+* [3d-shapes](graphics/3d-shapes)
+* [vectors](graphics/vectors)
 
 # Softdev
 ## September:
@@ -73,3 +74,4 @@
 - [sd/03-05-18](sd/03-05-18.md)
 - [sd/03-08-18](sd/03-08-18.md)
 - [sd/03-12-18](sd/03-12-18.md)
+- [sd/03-19-18](sd/03-19-18.md)

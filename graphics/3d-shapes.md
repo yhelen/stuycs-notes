@@ -65,8 +65,8 @@ Generate the defining points by translating a circle and rotating it
 Draw a torus (translate x, rotate y)
 ```
 y rotation                      Circle:             Torus
-|  cosphi theta sinphi |   | rcos(theta) + R |   | cosphi(rcostheta + R) + cx  |
-|       0 1     0      | x | rsin(theta)     | = | rsintheta + cy              |
-| -sinphi 0 cosphi     |   | phi             |   | -sinphi(rcostheta + R) + cz |
+| cosphi  theta sinphi |   | rcos(theta) + R |   | cosphi(rcostheta + R) + cx  |
+| 0       1     0      | x | rsin(theta)     | = | rsintheta + cy              |
+| -sinphi 0     cosphi |   | phi             |   | -sinphi(rcostheta + R) + cz |
 ```
 
