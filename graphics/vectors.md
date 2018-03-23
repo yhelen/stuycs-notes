@@ -16,3 +16,7 @@ another vector.
 **A** × **B** = <AyBz - AzBy, AzBx - AxBz, AxBy - AyBx>
 
 ||**A** × **B**|| = ||A|| ||B|| sin(theta)
+
+Finding a vector between 2 points.:
+**PQ** = <Q - P>
+**QP** = <P - Q>
