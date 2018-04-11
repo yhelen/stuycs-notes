@@ -31,6 +31,8 @@
 * [3d-shapes](graphics/3d-shapes.md)
 * [vectors](graphics/vectors.md)
 * [mesh](graphics/mesh.md)
+* [backface-culling](graphics/backface-culling.md)
+* [relative-coordinate-system](graphics/relative-coordinate-system.md)
 
 # Softdev
 ## September:
