@@ -33,6 +33,8 @@
 * [mesh](graphics/mesh.md)
 * [backface-culling](graphics/backface-culling.md)
 * [relative-coordinate-system](graphics/relative-coordinate-system.md)
+* [solids](graphics/solids.md)
+* [lighting](graphics/lighting.md)
 
 # Softdev
 ## September:
@@ -80,3 +82,7 @@
 - [sd/03-19-18](sd/03-19-18.md)
 - [sd/03-22-18](sd/03-22-18.md)
 - [sd/03-23-18](sd/03-23-18.md)
+## April
+- [sd/04-30-18](sd/04-30-18.md)
+## May
+- [sd/05-02-18](sd/05-02-18.md)
