@@ -35,6 +35,7 @@
 * [relative-coordinate-system](graphics/relative-coordinate-system.md)
 * [solids](graphics/solids.md)
 * [lighting](graphics/lighting.md)
+* [compilers](graphics/compilers.md)
 
 # Softdev
 ## September:
