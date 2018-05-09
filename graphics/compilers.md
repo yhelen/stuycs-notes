@@ -13,10 +13,10 @@ source code ---------> executable code
 4. optimizer (not always present)
 5. code generator
 
-| Name                        | Input       | Output     |
-| --------------------------- | ----------- | ---------- |
-| lexer                       | source code | token list |
-| parser (syntactic analyzer) |             |            |
+| Name                        | Input       | Output      |
+| --------------------------- | ----------- | ----------- |
+| lexer                       | source code | token list  |
+| parser (syntactic analyzer) | token list  | syntax tree |
 
 ## Lexer
 
@@ -34,3 +34,42 @@ Lexers:
 
 * c: lex, flex
 * java: javacc*
+
+## Parser
+
+* Perform syntax analysis.
+* Checks the token list against the defined structure (grammar)
+  of the language
+* Output is a syntax tree
+
+```
+E.g.
+token list:
+int
+main
+(
+)
+{
+long
+x
+=
+5
++
+6
+;
+printf
+(
+"%d"
+,
+x
+)
+;
+}
+            int  main
+        /       |      \
+        =      printf   return
+      /   \     /   \      \
+long x    +   "%d"   x      x
+         / \
+        5   6
+```
