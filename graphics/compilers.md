@@ -107,3 +107,17 @@ long x    +   "%d"   x      x
 | main   | function | int  |
 | x      | value    | long |
 | printf | function | int  |
+
+## Code Generator
+
+* Translates the operation list into binary assembly.
+
+## Our process:
+
+1. image script
+2. token list
+3. syntax tree
+4. operation list, symbol table
+5. image(s)
+
+Our code generator will have to call image creation/manipulation functions.
