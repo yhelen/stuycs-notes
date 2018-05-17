@@ -36,6 +36,7 @@
 * [solids](graphics/solids.md)
 * [lighting](graphics/lighting.md)
 * [compilers](graphics/compilers.md)
+* [animation](graphics/animation.md)
 
 # Softdev
 ## September:
