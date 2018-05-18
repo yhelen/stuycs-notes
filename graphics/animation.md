@@ -39,3 +39,53 @@ e.g. (5 frames above)
 ```
 frames 5
 ```
+
+## New Commands
+
+### transformation
+
+```
+transformation args knob
+```
+
+If there is a knob, look up its value and modify args by it
+
+### frames
+
+```
+frames #
+```
+
+Set internal # of frames variable
+
+### basename
+
+```
+basename name
+```
+
+Set internal frame name variable
+
+### vary
+
+```
+vary knob startframe endframe startval endval
+```
+
+Compute and store the knob values for each frame
+
+
+## 3-Pass Animation Framework
+
+1. Setup
+    * Set frames if frames command is present
+    * Set basename if basename command is present
+    * Stop if vary is present but not frames
+2. Vary
+    * Compute and store all knob values for every frame
+    * Stop if the vary range is invalid
+3. Draw
+    * Repeat the loop for each frame
+    * Update knobs in symbol table at the start of each loop
+    * At end of each loop, save the current frame
+    * Make animation
