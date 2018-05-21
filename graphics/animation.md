@@ -89,3 +89,10 @@ Compute and store the knob values for each frame
     * Update knobs in symbol table at the start of each loop
     * At end of each loop, save the current frame
     * Make animation
+
+## Storing Knob Values
+
+* Knob Major, Frame Minor (List of Knobs, each a list of frames)
+* Frame Major, Knob Minor (List of Frames, each a list of knobs) -- easier
+* If there is a hole between frames (vary does not define knob values for
+  frames 7 and 8, for example)
