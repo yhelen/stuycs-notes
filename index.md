@@ -37,6 +37,7 @@
 * [lighting](graphics/lighting.md)
 * [compilers](graphics/compilers.md)
 * [animation](graphics/animation.md)
+* [shading-models](graphics/shading-models.md)
 
 # Softdev
 ## September:
